@@ -1,0 +1,26 @@
+{
+  "cwd": "/Users/gamanox-wtf/wtf/encinos-ws",
+  "type": [
+    "web"
+  ],
+  "name": "Rincon de los Encinos",
+  "framework": "core",
+  "template": "blank",
+  "bundler": "webpack",
+  "cssPreProcessor": "stylus",
+  "theming": {
+    "customColor": true,
+    "color": "#733833",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false
+  },
+  "customBuild": false,
+  "webpack": {
+    "developmentSourceMap": true,
+    "productionSourceMap": false,
+    "hashAssets": false,
+    "preserveAssetsPaths": false,
+    "inlineAssets": true
+  }
+}
