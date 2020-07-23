@@ -3,7 +3,7 @@ import HomePage from '../pages/home.f7.html';
 
 var routes = [
   {
-    path: '(.*)',
+    path: '/',
     component: HomePage,
   },
 ];
