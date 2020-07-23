@@ -10,3 +10,35 @@
 @import 'normalize.styl'
 @import 'webflow.styl'
 @import 'encinos.styl'
+
+#app
+  #zoom-toggle
+    display none
+    position absolute !important
+    cursor pointer
+    top 50%
+    right 0
+    // width 100px
+    // height 100px
+    z-index 12000
+    padding 10px
+    background-color #333333
+    .zoom-in
+      padding-bottom 10px
+    // .zoom-out
+    //   display none
+    span
+      padding-right 10px
+      display block
+
+      // width 100%
+      // height 100%
+      font-size 50px
+      color #605e5c
+    &.active
+      display block
+    &.zoomed
+      // .zoom-in
+      //   display none
+      // .zoom-out
+      //   display block

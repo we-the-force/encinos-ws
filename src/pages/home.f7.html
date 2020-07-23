@@ -1,5 +1,5 @@
 <template>
-  <div class="page" data-name="home">
+  <div class="page" data-name="home" id="home">
     
     <!-- Scrollable page content-->
     <div class="page-content">
@@ -38,6 +38,9 @@
         </div>
         <div   class="div-block-3"><img src="static/02-RinconEncinos_05-Escala-x1.5.png" srcset="static/02-RinconEncinos_05-Escala-x1.5.png 500w, static/02-RinconEncinos_05-Escala-x1.5.png 800w, static/02-RinconEncinos_05-Escala-x1.5.png 1080w, static/02-RinconEncinos_05-Escala-x1.5.png 1600w, static/02-RinconEncinos_05-Escala-x1.5.png 2000w, static/02-RinconEncinos_05-Escala-x1.5.png 2155w" sizes="100vw" alt="" class="image-5"></div>
         <div id="lotes" class="div-block-4"><img src="static/Distribucion.png" srcset="static/Distribucion-p-500.png 500w, static/Distribucion-p-800.png 800w, static/Distribucion-p-1080.png 1080w, static/Distribucion.png 1210w" sizes="(max-width: 479px) 100vw, (max-width: 767px) 90vw, (max-width: 991px) 92vw, 93vw" alt=""></div>
+        <div class="block">
+          <div class="button button-fill ver-lotes">Ver distribucion</div>
+        </div>
         <div class="beneficios">
           <div class="columns-2 w-row">
             <div class="column-6 w-col w-col-6">
@@ -137,6 +140,54 @@ export default {
     pageMounted: function(e, page){
       var self = this;
       var app = self.$app;
+
+      $$('.ver-lotes').on('click', function () {
+          myPhotoBrowserDark.open();
+          myPhotoBrowserDark.on('opened', function(ev){
+            console.log(myPhotoBrowserDark);
+          $$('#zoom-toggle').addClass('active');
+          $$('#zoom-toggle .zoom-in').on('click', function(eve){
+            myPhotoBrowserDark.swiper.zoom.in();
+          });
+          $$('#zoom-toggle .zoom-out').on('click', function(eve){
+            myPhotoBrowserDark.swiper.zoom.out();
+          });
+            // myPhotoBrowserDark.swiper.zoom.in();
+          });
+          myPhotoBrowserDark.on('closed', function(ev){
+            console.log(myPhotoBrowserDark);
+          $$('#zoom-toggle').removeClass('active');
+
+            // myPhotoBrowserDark.swiper.zoom.in();
+          });
+
+        });
+
+      var myPhotoBrowserDark = app.photoBrowser.create({
+            popupCloseLinkText: 'Cerrar',
+            photos : [
+                'static/encinos-lotes.jpg',
+            ],
+            theme: 'dark',
+            swiper: {
+              
+              preloadImages: true,
+              navigation: {
+                nextEl: '.photo-browser-next',
+                prevEl: '.photo-browser-prev',
+              },
+              zoom: {
+                enabled: true,
+                maxRatio: 13,
+                minRatio: 3,
+                toggle: true
+              },
+              lazy: {
+                enabled: true,
+              },
+            },
+        });
+
       $$('.menu-pb').on('click', function (ev) {
         let id = $$(this).data('id')
         let position = $$('.page-content').scrollTop() + $$("#" + id).offset().top - 80
