@@ -39,7 +39,7 @@
         <div   class="div-block-3"><img src="static/02-RinconEncinos_05-Escala-x1.5.png" srcset="static/02-RinconEncinos_05-Escala-x1.5.png 500w, static/02-RinconEncinos_05-Escala-x1.5.png 800w, static/02-RinconEncinos_05-Escala-x1.5.png 1080w, static/02-RinconEncinos_05-Escala-x1.5.png 1600w, static/02-RinconEncinos_05-Escala-x1.5.png 2000w, static/02-RinconEncinos_05-Escala-x1.5.png 2155w" sizes="100vw" alt="" class="image-5"></div>
         <div id="lotes" class="div-block-4"><img src="static/Distribucion.png" srcset="static/Distribucion-p-500.png 500w, static/Distribucion-p-800.png 800w, static/Distribucion-p-1080.png 1080w, static/Distribucion.png 1210w" sizes="(max-width: 479px) 100vw, (max-width: 767px) 90vw, (max-width: 991px) 92vw, 93vw" alt=""></div>
         <div class="block">
-          <div class="button button-fill ver-lotes">Ver distribucion</div>
+          <div class="button button-fill ver-lotes">Ver distribución</div>
         </div>
         <div class="beneficios">
           <div class="columns-2 w-row">
@@ -142,23 +142,33 @@ export default {
       var app = self.$app;
 
       $$('.ver-lotes').on('click', function () {
+          
           myPhotoBrowserDark.open();
           myPhotoBrowserDark.on('opened', function(ev){
+            var swiperZoom=1;
             console.log(myPhotoBrowserDark);
           $$('#zoom-toggle').addClass('active');
           $$('#zoom-toggle .zoom-in').on('click', function(eve){
+
+            if(swiperZoom<14){
+              swiperZoom++;
+            $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoom);
             myPhotoBrowserDark.swiper.zoom.in();
+            }
           });
           $$('#zoom-toggle .zoom-out').on('click', function(eve){
-            myPhotoBrowserDark.swiper.zoom.out();
+            if(swiperZoom>0){
+              swiperZoom=1;
+            $$('.swiper-zoom-container').attr('data-swiper-zoom', 1);
+              myPhotoBrowserDark.swiper.zoom.out();
+            }
+
           });
-            // myPhotoBrowserDark.swiper.zoom.in();
           });
           myPhotoBrowserDark.on('closed', function(ev){
             console.log(myPhotoBrowserDark);
           $$('#zoom-toggle').removeClass('active');
 
-            // myPhotoBrowserDark.swiper.zoom.in();
           });
 
         });
