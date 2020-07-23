@@ -1,0 +1,45 @@
+#home
+    .menu-icon
+        display none
+@media screen and (max-width: 479px)
+    #home    
+        .menu-icon
+            display block
+            .menu
+                color #733833
+
+                .menu-item
+                    background-color transparent
+
+                .menu-item.menu-item-dropdown-opened, .menu-dropdown
+                    background-color #733833
+                    .menu-item-content
+                        color #efe4df
+                        
+
+
+                .menu-item-content
+                    &:after
+                        display none
+
+                    color #733833
+
+                .menu-dropdown
+                    &:before
+                        background-image radial-gradient(at 0% 0%, transparent 0%, transparent 70%, #733833 72%)
+
+                .menu-dropdown-content
+                    background-color #733833
+
+                    a, span
+                        color #efe4df
+        .right
+            position absolute
+            right 6px
+            top 41px
+            .link
+                color rgba(235, 217, 178, 0.5)
+                line-height 21px
+
+                &.active
+                    color #EBD9B2
