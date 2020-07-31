@@ -209,7 +209,7 @@ export default {
           $$('#zoom-toggle .zoom-out').on('click', function(eve){
             if(swiperZoom>0){
               swiperZoom=swiperZoom-3.25;
-            $$('.swiper-zoom-container').attr('data-swiper-zoom', 1);
+            $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoomy);
               myPhotoBrowserDark.swiper.zoom.out();
             }
 
