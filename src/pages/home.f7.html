@@ -54,7 +54,7 @@
         </nav>
       </header>
       <div class="section-4" id="inicio">
-        <div data-poster-url="static/5efa5d1ef7065c822d724227_loopweb-poster-00001.jpg" data-video-urls="static/loopweb02.mp4" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;static/5efa5d1ef7065c822d724227_loopweb-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="static/loopweb02.mp4" data-wf-ignore="true">
+        <div data-poster-url="static/5efa5d1ef7065c822d724227_loopweb-poster-00001.jpg" data-video-urls="static/loopweb02.mp4" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom"><video id="vid" autoplay="" loop="" style="background-image:url(&quot;static/5efa5d1ef7065c822d724227_loopweb-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="static/loopweb02.mp4" data-wf-ignore="true">
           <!-- <source src="static/loopweb02.webm" data-wf-ignore="true"> -->
           </video></div>
       </div>
@@ -184,9 +184,12 @@ export default {
     pageMounted: function(e, page){
       var self = this;
       var app = self.$app;
-      var video = document.querySelector('video');
-      video.muted = true;
-      video.play();
+      if(app.device.desktop){
+        setTimeout(function(){
+        document.getElementById('vid').play();
+      },1000);
+      }
+      
 
       $$('.ver-lotes').on('click', function () {
           
