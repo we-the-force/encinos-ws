@@ -185,9 +185,9 @@ export default {
       var self = this;
       var app = self.$app;
       if(app.device.desktop){
-        setTimeout(function(){
-        document.getElementById('vid').play();
-      },1000);
+        var video = document.querySelector('video');
+        video.muted = true;
+        video.play();
       }
       
 
@@ -200,17 +200,18 @@ export default {
           $$('#zoom-toggle').addClass('active');
           $$('#zoom-toggle .zoom-in').on('click', function(eve){
 
-            if(swiperZoom<14){
-              swiperZoom=swiperZoom+3.25;
+            if(swiperZoom<16){
+              swiperZoom=swiperZoom+3.5;
             $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoom);
             myPhotoBrowserDark.swiper.zoom.in();
             }
           });
           $$('#zoom-toggle .zoom-out').on('click', function(eve){
             if(swiperZoom>0){
-              swiperZoom=swiperZoom-3.25;
+              swiperZoom=swiperZoom-3.5;
             $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoomy);
               myPhotoBrowserDark.swiper.zoom.out();
+
             }
 
           });
@@ -238,8 +239,8 @@ export default {
               },
               zoom: {
                 enabled: true,
-                maxRatio: 13,
-                minRatio: 3,
+                maxRatio: 15,
+                minRatio: 1,
                 toggle: true
               },
               lazy: {
