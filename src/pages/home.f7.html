@@ -201,14 +201,14 @@ export default {
           $$('#zoom-toggle .zoom-in').on('click', function(eve){
 
             if(swiperZoom<14){
-              swiperZoom++;
+              swiperZoom=swiperZoom+3.25;
             $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoom);
             myPhotoBrowserDark.swiper.zoom.in();
             }
           });
           $$('#zoom-toggle .zoom-out').on('click', function(eve){
             if(swiperZoom>0){
-              swiperZoom=1;
+              swiperZoom=swiperZoom-3.25;
             $$('.swiper-zoom-container').attr('data-swiper-zoom', 1);
               myPhotoBrowserDark.swiper.zoom.out();
             }
