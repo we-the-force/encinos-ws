@@ -200,8 +200,8 @@ export default {
           $$('#zoom-toggle').addClass('active');
           $$('#zoom-toggle .zoom-in').on('click', function(eve){
             console.log('zoom before: '+swiperZoom);
-            if(swiperZoom<16){
-              swiperZoom=swiperZoom+3.5;
+            if(swiperZoom<9){
+              swiperZoom=swiperZoom+2.5;
             $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoom);
             myPhotoBrowserDark.swiper.zoom.in();
             console.log('zoom after: '+swiperZoom);
@@ -209,10 +209,10 @@ export default {
             }
           });
           $$('#zoom-toggle .zoom-out').on('click', function(eve){
-            if(swiperZoom>0){
+            if(swiperZoom>1){
             console.log('zoom before: '+swiperZoom);
 
-              swiperZoom=swiperZoom-3.5;
+              swiperZoom=swiperZoom-2.5;
             $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoom);
               myPhotoBrowserDark.swiper.zoom.out();
             console.log('zoom after: '+swiperZoom);
@@ -245,7 +245,7 @@ export default {
               },
               zoom: {
                 enabled: true,
-                maxRatio: 15,
+                maxRatio: 10,
                 minRatio: 1,
                 toggle: true
               },
